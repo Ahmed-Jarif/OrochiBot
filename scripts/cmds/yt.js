@@ -3,7 +3,7 @@ module.exports = {
     name: "youtube",
     version: "1.0",
     role: 0,
-    author: "MR SANNY",
+    author: "Ahmed Sojib",
     cooldowns: 40,
     shortdescription: "send YouTube video",
     longdescription: "",
