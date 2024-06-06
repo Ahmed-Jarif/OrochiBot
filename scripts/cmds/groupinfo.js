@@ -1,6 +1,5 @@
 const fs = require("fs-extra");
 const request = require("request");
-
 module.exports = {
 config: {
     name: "groupinfo",
