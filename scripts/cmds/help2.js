@@ -3,13 +3,13 @@ const axios = require("axios");
 const path = require("path");
 const { getPrefix } = global.utils;
 const { commands, aliases } = global.GoatBot;
-const doNotDelete = "[ 𝗠𝗥.𝗔𝗬𝗔𝗡 ]"; // changing this wont change the goatbot V2 of list cmd it is just a decoyy
+const doNotDelete = "[ ♥️| SOJIB BOT ]"; // changing this wont change the goatbot V2 of list cmd it is just a decoyy
 
 module.exports = {
   config: {
     name: "help2",
     version: "1.17",
-    author: "𝗠𝗥.𝗔𝗬𝗔𝗡", // original author 𝗠𝗥.𝗔𝗬𝗔𝗡
+    author: "NTKhang", //**original author MR.AYAN this is author fb I'd : https://m.me/NOOBS.DEVELOPER.AYAN **//
     countDown: 5,
     role: 0,
     shortDescription: {
@@ -34,7 +34,8 @@ module.exports = {
       const categories = {};
       let msg = "";
 
-      msg += ``; // replace with your name 
+      msg += `░░░░█▄█ ▄▀█ ▀█ █▄▀ █▄█░░░
+░░░░░█░ █▀█ █▄ █░█ ░█░░░░\n\n◦❭❯❱ 𝗖𝗢𝗠𝗠𝗔𝗡𝗗𝗦 & 𝗖𝗔𝗧𝗘𝗚𝗢𝗥𝗬 ❰❮❬◦`; // replace with your name 
 
       for (const [name, value] of commands) {
         if (value.config.role > 1 && role < value.config.role) continue;
@@ -46,27 +47,33 @@ module.exports = {
 
       Object.keys(categories).forEach((category) => {
         if (category !== "info") {
-          msg += `\n╭─────⭓『  ${category.toUpperCase()}  』`;
+          msg += `\n╭───────────❍\n│ 『  ${category.toUpperCase()}  』`;
 
 
           const names = categories[category].commands.sort();
           for (let i = 0; i < names.length; i += 3) {
-            const cmds = names.slice(i, i + 2).map((item) => `⭔${item}`);
-            msg += `\n│${cmds.join(" ".repeat(Math.max(1, 5 - cmds.join("").length)))}`;
+            const cmds = names.slice(i, i + 3).map((item) => `⭔${item}`);
+            msg += `\n│ ${cmds.join(" ".repeat(Math.max(1, 10 - cmds.join("").length)))}`;
           }
 
           msg += `\n╰────────────⭓`;
         }
       });
 
-      const totalCommands = commands.size;
-      msg += `\n\n╭─────⭓[ 𝗘𝗻𝗷𝗼𝘆 ]\n│> 𝗧𝗼𝘁𝗮𝗹 𝗰𝗺𝗱𝘀: [${totalCommands}].\n│𝗧𝘆𝗽𝗲: [ ${prefix}𝗵𝗲𝗹𝗽 𝘁𝗼 \n│<𝗰𝗺𝗱> 𝘁𝗼 𝗹𝗲𝗮𝗿𝗻 𝘁𝗵𝗲 𝘂𝘀𝗮𝗴𝗲.]\n╰────────────⭓`;
-      msg += ``;
-      msg += `\n╭─────⭓\n│🌟 | [ 𝗔𝗛𝗠𝗘𝗗 𝗦𝗢𝗝𝗜𝗕 ]\n│https://m.me/ahmed.sojib49\n╰────────────⭓`; // its not decoy so change it if you want 
+      const totalCommands = commhelp.size;
+      msg += `\n𝗖𝘂𝗿𝗿𝗲𝗻𝘁𝗹𝘆, 𝘁𝗵𝗲 𝗯𝗼𝘁 𝗵𝗮𝘀 ${totalCommands} 𝗰𝗼𝗺𝗺𝗮𝗻𝗱𝘀 𝘁𝗵𝗮𝘁 𝗰𝗮𝗻 𝗯𝗲 𝘂𝘀𝗲𝗱\n`;
+      msg += `𝗧𝘆𝗽𝗲 ${prefix} 𝗵𝗲𝗹𝗽 𝗰𝗺𝗱𝗡𝗮𝗺𝗲 𝘁𝗼 𝘃𝗶𝗲𝘄 𝘁𝗵𝗲 𝗱𝗲𝘁𝗮𝗶𝗹𝘀 𝗼𝗳 𝘁𝗵𝗮𝘁 𝗰𝗼𝗺𝗺𝗮𝗻𝗱\n\n`;
+      msg += `This bot made by SOJIB AHMED | 🫶 SOJIB-LORD 3.0`; // its not decoy so change it if you want 
 
+      const helpListImages = [
+        '',
+      ];
+
+      const helpListImage = helpListImages[Math.floor(Math.random() * helpListImages.length)];
 
       await message.reply({
         body: msg,
+        attachment: await global.utils.getStreamFromURL(helpListImage),
       });
     } else {
       const commandName = args[0].toLowerCase();
@@ -87,13 +94,19 @@ module.exports = {
         const response = `╭── NAME ────⭓
   │ ${configCommand.name}
   ├── INFO
+  │ Description: ${longDescription}
+  │ Other names: ${configCommand.aliases ? configCommand.aliases.join(", ") : "Do not have"}
+  │ Other names in your group: Do not have
   │ Version: ${configCommand.version || "1.0"}
   │ Role: ${roleText}
   │ Time per command: ${configCommand.countDown || 1}s
   │ Author: ${author}
   ├── Usage
   │ ${usage}
-  ╰──────⭓`;
+  ├── Notes
+  │ The content inside <XXXXX> can be changed
+  │ The content inside [a|b|c] is a or b or c
+  ╰━━━━━━━❖`;
 
         await message.reply(response);
       }
