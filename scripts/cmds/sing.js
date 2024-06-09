@@ -6,7 +6,7 @@ const path = require('path');
 
 module.exports = {
   config: {
-    name: 'song',
+    name: 'sing',
     version: '3.0',
     role: 0,
     author: 'ArYAN',//don't change my credits
